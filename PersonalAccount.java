@@ -14,6 +14,13 @@ public class PersonalAccount {
 
     public void deposit(double amount){
         Amount transaction = new Amount(amount, TransactionType.Deposit);
-        
+        transactions.add(transaction);
+        balance += amount;
+    }
+
+    public void Withdraw(double amount){
+        Amount transaction = new Amount(amount, TransactionType.Withdraw);
+        transactions.add(transaction);
+        balance -= amount;
     }
 }
