@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.ArrayList;
 
 public class PersonalAccount {
     public int accountNumber;
@@ -10,9 +11,10 @@ public class PersonalAccount {
         this.accountNumber = accountNumber;
         this.accountHolder = accountHolder;
         this.balance = 0.0;
+        this.transactions = new ArrayList<>();
     }
 
-    public void deposit(double amount){
+    public void Deposit(double amount){
         Amount transaction = new Amount(amount, TransactionType.Deposit);
         transactions.add(transaction);
         balance += amount;
@@ -30,7 +32,19 @@ public class PersonalAccount {
 
     public void printTransactionHistory(){
         for(Amount transaction: transactions){
-            System.out.println(transaction.getA);
+            System.out.println(transaction.getTransactionType() + " - " + transaction.getAmount());
         }
+    }
+
+    public double getBalance(){
+        return balance;
+    }
+
+    public int getAccountNumber(){
+        return accountNumber;
+    }
+
+    public String getAccountHolder(){
+        return accountHolder;
     }
 }
