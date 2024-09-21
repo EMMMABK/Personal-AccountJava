@@ -19,8 +19,18 @@ public class PersonalAccount {
     }
 
     public void Withdraw(double amount){
-        Amount transaction = new Amount(amount, TransactionType.Withdraw);
-        transactions.add(transaction);
-        balance -= amount;
+        if(amount <= balance){
+            Amount transaction = new Amount(amount, TransactionType.Withdraw);
+            transactions.add(transaction);
+            balance -= amount;
+        }else{
+            System.out.println(">>>");
+        }
+    }
+
+    public void printTransactionHistory(){
+        for(Amount transaction: transactions){
+            System.out.println(transaction.getA);
+        }
     }
 }
